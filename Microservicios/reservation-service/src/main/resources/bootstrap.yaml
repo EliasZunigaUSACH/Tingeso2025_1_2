@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: reservation-service
+  cloud:
+    config:
+      enabled: true
+      uri:
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
