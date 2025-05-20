@@ -37,6 +37,12 @@ public class ClientController {
         return ResponseEntity.ok(clientNew);
     }
 
+    @PutMapping()
+    public ResponseEntity<Client> update(@RequestBody Client client) {
+        Client clientNew = clientService.update(client);
+        return ResponseEntity.ok(clientNew);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") int id) {
         boolean result = clientService.delete(id);

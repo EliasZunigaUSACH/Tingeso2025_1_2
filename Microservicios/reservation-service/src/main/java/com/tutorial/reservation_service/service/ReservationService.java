@@ -134,7 +134,7 @@ public class ReservationService {
     }
 
     public Reservation save(Reservation reservation) {
-        Client client = restTemplate.getForObject
+        Client client = restTemplate.getForObject;
 
         Long price = 0L;
         int time = 0, duration = reservation.getTrackTime();

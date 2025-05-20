@@ -25,6 +25,10 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
+    public Client update(Client client) {
+        return clientRepository.save(client);
+    }
+
     public boolean delete(int id) {
         clientRepository.deleteById(id);
         return true;
