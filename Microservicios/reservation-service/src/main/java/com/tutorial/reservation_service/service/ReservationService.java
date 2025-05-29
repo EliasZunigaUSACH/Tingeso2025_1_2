@@ -5,6 +5,7 @@ import com.tutorial.reservation_service.model.Client;
 import com.tutorial.reservation_service.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,9 @@ public class ReservationService {
 
     @Autowired
     ReservationRepository reservationRepository;
+
+    @Autowired
+    private RestTemplate restTemplate;
 
     public List<Reservation> getAll() {
         return reservationRepository.findAll();
@@ -134,7 +138,7 @@ public class ReservationService {
     }
 
     public Reservation save(Reservation reservation) {
-        Client client = restTemplate.getForObject;
+        Client client = restTemplate.getForObject("http://client-service/client/" + );
 
         Long price = 0L;
         int time = 0, duration = reservation.getTrackTime();
@@ -164,7 +168,6 @@ public class ReservationService {
     }
 
     public Reservation update(Reservation reservation) {
-
         return reservationRepository.save(reservation);
     }
 

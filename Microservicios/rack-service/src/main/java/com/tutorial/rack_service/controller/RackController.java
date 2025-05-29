@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/rack")
 public class RackController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class RackController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Rack> getById(@PathVariable("id") int id) {
-        Rack rack = rackService.getStudentById(id);
+        Rack rack = rackService.getRackById(id);
         if(rack == null)
             return ResponseEntity.notFound().build();
         return ResponseEntity.ok(rack);

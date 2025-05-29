@@ -6,9 +6,9 @@ spring:
       enabled: true
       uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://localhost:5432/client-service-db
+    url: jdbc:postgresql://localhost:5433/clientServiceDb
     username: postgres
-    password: 5432
+    password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
     properties:

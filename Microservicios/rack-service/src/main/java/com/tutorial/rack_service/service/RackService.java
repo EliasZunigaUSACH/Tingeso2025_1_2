@@ -20,7 +20,7 @@ public class RackService {
         return rackRepository.findAll();
     }
 
-    public Rack getStudentById(int id) {
+    public Rack getRackById(int id) {
         return rackRepository.findById(id).orElse(null);
     }
 

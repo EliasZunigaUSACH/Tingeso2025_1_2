@@ -13,8 +13,8 @@ public class ReceiptService {
     @Autowired
     ReceiptRepository receiptRepository;
 
-    public Receipt getReceiptById(int id) {
-        return receiptRepository.findById(id);
+    public Receipt getById(int id) {
+        return receiptRepository.findById(id).orElse(null);
     }
 
     public Receipt save(Receipt receipt) {

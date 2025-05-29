@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pet")
+@RequestMapping("/Receipt")
 public class ReceiptController {
 
     @Autowired
@@ -17,7 +17,7 @@ public class ReceiptController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Receipt> getById(@PathVariable("id") int id) {
-        Receipt receipt = receiptService.getReceiptById(id);
+        Receipt receipt = receiptService.getById(id);
         if(receipt == null)
             return ResponseEntity.notFound().build();
         return ResponseEntity.ok(receipt);

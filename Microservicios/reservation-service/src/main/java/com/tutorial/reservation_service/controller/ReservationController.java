@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/pet")
+@RequestMapping("/reservation")
 public class ReservationController {
 
     @Autowired
@@ -36,11 +36,4 @@ public class ReservationController {
         Reservation reservationNew = reservationService.save(reservation);
         return ResponseEntity.ok(reservationNew);
     }
-
-    @GetMapping("/bystudent/{studentId}")
-    public ResponseEntity<List<Reservation>> getByStudentId(@PathVariable("studentId") int studentId) {
-        List<Reservation> reservations = reservationService.byStudentId(studentId);
-        return ResponseEntity.ok(reservations);
-    }
-
 }
