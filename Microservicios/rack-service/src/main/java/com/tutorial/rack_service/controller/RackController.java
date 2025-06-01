@@ -32,6 +32,14 @@ public class RackController {
         return ResponseEntity.ok(rack);
     }
 
+    @GetMapping("/year/{year}/month/{month}")
+    public ResponseEntity<List<Rack>> getByYearAndMonth(@PathVariable("year") String year, @PathVariable("month") String month) {
+        List<Rack> racks = rackService.getRacksByYearAndMonth(year, month);
+        if(racks.isEmpty())
+            return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(racks);
+    }
+
     @PostMapping()
     public ResponseEntity<Rack> save(@RequestBody Rack rack) {
         Rack rackNew = rackService.save(rack);

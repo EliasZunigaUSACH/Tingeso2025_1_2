@@ -20,6 +20,10 @@ public class RackService {
         return rackRepository.findAll();
     }
 
+    public List<Rack> getRacksByYearAndMonth(String year, String month) {
+        return rackRepository.findRacksByYearAndMonth(year, month);
+    }
+
     public Rack getRackById(int id) {
         return rackRepository.findById(id).orElse(null);
     }
