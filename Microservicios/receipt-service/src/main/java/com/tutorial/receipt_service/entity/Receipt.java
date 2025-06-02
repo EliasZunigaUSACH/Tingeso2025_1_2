@@ -16,6 +16,7 @@ public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private LocalTime time;
     private String clientName;
     private String clientEmail;
     private int reservationId;

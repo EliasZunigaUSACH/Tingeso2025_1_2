@@ -8,14 +8,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class ReservationServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReservationServiceApplication.class, args);
 	}
+
 	@Bean
 	@LoadBalanced
-	public RestTemplate restTemplate{
+	public RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
 }

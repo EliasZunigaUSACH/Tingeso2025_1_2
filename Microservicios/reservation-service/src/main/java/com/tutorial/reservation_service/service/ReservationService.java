@@ -9,10 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+
+import java.util.*;
 
 @Service
 public class ReservationService {
@@ -78,7 +76,7 @@ public class ReservationService {
         }
     }
 
-    private void calculateDiscounts(Client client, Reservation reservation) throws ParseException, InterruptedException {
+    private void calculateDiscounts(Client client, Reservation reservation) throws ParseException {
         //Aplicación descuento por fidelidad del cliente
         switch (client.getFidelityLevel()){
             case 0: reservation.setDiscountFidelity(0);
@@ -137,9 +135,11 @@ public class ReservationService {
         }
     }
 
-    public Reservation save(Reservation reservation) {
-        Client client = restTemplate.getForObject("http://client-service/client/" + );
-
+    public Reservation save(Reservation reservation) throws ParseException {
+        Client client = restTemplate.getForObject("http://client-service/client/" + reservation.getClientId(), Client.class);
+        if(client == null){
+            throw new RuntimeException("El cliente no existe");
+        }
         Long price = 0L;
         int time = 0, duration = reservation.getTrackTime();
 
@@ -160,14 +160,8 @@ public class ReservationService {
         reservation.setTotalTime(time);
         reservation.setEnd(reservation.getStart().plusMinutes(time));
         reservation.setBasePrice(price);
-
-
+        calculateDiscounts(client, reservation);
         applyDiscount(reservation);
-
-        return reservationRepository.save(reservation);
-    }
-
-    public Reservation update(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
 

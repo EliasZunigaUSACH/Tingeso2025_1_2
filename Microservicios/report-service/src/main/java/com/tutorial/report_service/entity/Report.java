@@ -20,7 +20,7 @@ public class Report {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private List<Rack> reservations;
+    private List<Rack> Racks;
     private List<Long> boxOfficeByMonth;
     private Long totalBoxOffice;
 }
