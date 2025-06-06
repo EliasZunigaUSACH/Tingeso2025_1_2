@@ -6,11 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,5 +23,7 @@ public class Rack {
     private String year;
     private String month;
     private int week;
-    private List<Reservation> reservations;
+
+    @OneToMany(mappedBy = "rack", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations = new ArrayList<>();
 }

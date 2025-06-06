@@ -5,8 +5,9 @@ spring:
     config:
       enabled: true
       uri: http://localhost:8081
+
   datasource:
-    url: jdbc:postgresql://localhost:5433/clientServiceDb
+    url: jdbc:postgresql://localhost:5432/clientservicedb
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver

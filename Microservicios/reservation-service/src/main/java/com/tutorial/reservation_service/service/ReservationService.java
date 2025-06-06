@@ -158,7 +158,7 @@ public class ReservationService {
                 break;
         }
         reservation.setTotalTime(time);
-        reservation.setEnd(reservation.getStart().plusMinutes(time));
+        reservation.setEnd_time(reservation.getStart_time().plusMinutes(time));
         reservation.setBasePrice(price);
         calculateDiscounts(client, reservation);
         applyDiscount(reservation);

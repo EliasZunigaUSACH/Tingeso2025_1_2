@@ -27,8 +27,8 @@ public class Reservation {
     private int peopleQuantity;
     private int trackTime;
     private int totalTime;
-    private LocalTime start;
-    private LocalTime end;
+    private LocalTime start_time;
+    private LocalTime end_time;
     private Long basePrice;
     private int discountQuantity;
     private int discountFidelity;
