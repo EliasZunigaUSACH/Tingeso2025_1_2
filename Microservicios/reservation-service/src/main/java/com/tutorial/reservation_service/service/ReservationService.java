@@ -148,11 +148,11 @@ public class ReservationService {
                 price = 15000L;
                 time = 30;
                 break;
-            case 20:
+            case 15:
                 price = 20000L;
                 time = 35;
                 break;
-            case 30:
+            case 20:
                 price = 25000L;
                 time = 40;
                 break;

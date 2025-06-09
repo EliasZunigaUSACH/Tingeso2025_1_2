@@ -18,8 +18,10 @@ public class Receipt {
     private int id;
     private LocalTime time;
     private String clientName;
+    private int clientId;
     private String clientEmail;
     private int reservationId;
+    private boolean emailSended = false;
 
     @Lob
     private byte[] pdf;

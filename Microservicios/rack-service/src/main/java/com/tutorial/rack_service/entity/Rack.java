@@ -1,7 +1,5 @@
 package com.tutorial.rack_service.entity;
 
-import com.tutorial.rack_service.model.Reservation;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +22,6 @@ public class Rack {
     private String month;
     private int week;
 
-    @OneToMany(mappedBy = "rack", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Reservation> reservations = new ArrayList<>();
+    @ElementCollection
+    private List<Integer> reservations = new ArrayList<>();
 }

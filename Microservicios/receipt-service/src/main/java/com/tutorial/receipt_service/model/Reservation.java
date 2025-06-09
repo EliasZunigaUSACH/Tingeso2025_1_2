@@ -1,7 +1,14 @@
 package com.tutorial.receipt_service.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalTime;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reservation {
     private int id;
     private int clientId;

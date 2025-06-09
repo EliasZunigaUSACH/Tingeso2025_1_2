@@ -32,7 +32,8 @@ public class RackService {
         return rackRepository.save(rack);
     }
 
-    public Rack update(Rack rack) {
+    public Rack update(Rack rack, int reservationId) {
+        rack.getReservationsIds().add(reservationId);
         return rackRepository.save(rack);
     }
 }

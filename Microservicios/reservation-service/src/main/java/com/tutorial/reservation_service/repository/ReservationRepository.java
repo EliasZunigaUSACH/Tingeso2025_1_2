@@ -9,7 +9,4 @@ import java.util.List;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
-
-    List<Reservation> findByYearAndMonthAndDay(String year, String month, String day);
-
 }

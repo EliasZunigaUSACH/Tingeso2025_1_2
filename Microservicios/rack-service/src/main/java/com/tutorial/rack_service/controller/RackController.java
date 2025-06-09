@@ -47,8 +47,8 @@ public class RackController {
     }
 
     @PutMapping
-    public ResponseEntity<Rack> update(@RequestBody Rack rack) {
-        Rack rackNew = rackService.update(rack);
+    public ResponseEntity<Rack> update(@RequestBody Rack rack, @RequestParam("id") int id) {
+        Rack rackNew = rackService.update(rack, id);
         return ResponseEntity.ok(rackNew);
     }
 }
