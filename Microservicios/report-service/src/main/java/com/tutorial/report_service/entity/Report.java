@@ -24,8 +24,15 @@ public class Report {
     @ElementCollection
     private List<Integer> racksIDs;
 
+    @ElementCollection
     private List<Long> monthEarnings1;
+
+    @ElementCollection
     private List<Long> monthEarnings2;
+
+    @ElementCollection
     private List<Long> monthEarnings3;
+
+    @ElementCollection
     private List<Long> totalMonthEarnings;
 }
