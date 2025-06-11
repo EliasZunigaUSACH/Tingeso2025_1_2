@@ -22,7 +22,7 @@ const AddEditClient = () => {
   const saveClient = (e) => {
     e.preventDefault();
 
-    const client = { id, name, birthday, fidelityLevel };
+    const client = { id, name, email, birthday, fidelityLevel };
     if (id) {
       //Actualizar Datos Cliente
       clientService
