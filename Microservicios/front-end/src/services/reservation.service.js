@@ -1,7 +1,7 @@
 import httpClient from "../http-common";
 
 const getAll = () => {
-    return httpClient.get('/reservation-service/api/v1/reservations/');
+    return httpClient.get('/reservation-service/api/v1/reservations');
 }
 
 const create = data => {

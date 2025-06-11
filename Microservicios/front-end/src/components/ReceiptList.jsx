@@ -11,7 +11,7 @@ const ReceiptList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/receipts")
+    axios.get("http://localhost:8080/api/v1/receipts")
       .then((res) => {
         setReceipts(res.data);
         setLoading(false);

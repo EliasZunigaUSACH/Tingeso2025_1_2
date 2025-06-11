@@ -16,7 +16,7 @@ public class ReceiptController {
     @Autowired
     ReceiptService receiptService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Receipt>> getAll() {
         List<Receipt> receipts = receiptService.getAll();
         if (receipts.isEmpty())
@@ -32,7 +32,7 @@ public class ReceiptController {
         return ResponseEntity.ok(receipt);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Receipt> save(@RequestBody Receipt receipt) {
         Receipt receiptNew = receiptService.save(receipt);
         return ResponseEntity.ok(receiptNew);

@@ -16,7 +16,7 @@ public class RackController {
     @Autowired
     RackService rackService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Rack>> getAll() {
         List<Rack> racks = rackService.getAll();
         if(racks.isEmpty())
@@ -40,7 +40,7 @@ public class RackController {
         return ResponseEntity.ok(racks);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Rack> save(@RequestBody Rack rack) {
         Rack rackNew = rackService.save(rack);
         return ResponseEntity.ok(rackNew);

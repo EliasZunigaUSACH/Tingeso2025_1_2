@@ -16,7 +16,7 @@ public class ReportController {
     @Autowired
     ReportService reportService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Report>> getAll() {
         List<Report> reports = reportService.getAll();
         if(reports.isEmpty())
@@ -32,7 +32,7 @@ public class ReportController {
         return ResponseEntity.ok(report);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Report> save(@RequestBody Report report) {
         Report reportNew = reportService.save(report);
         return ResponseEntity.ok(reportNew);

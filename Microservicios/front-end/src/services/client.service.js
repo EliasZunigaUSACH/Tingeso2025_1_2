@@ -1,11 +1,11 @@
 import httpClient from "../http-common";
 
 const getAll = () => {
-    return httpClient.get('/client-service/api/v1/clients/');
+    return httpClient.get('/client-service/api/v1/clients');
 }
 
 const create = data => {
-    return httpClient.post("/client-service/api/v1/clients/", data);
+    return httpClient.post("/client-service/api/v1/clients", data);
 }
 
 const get = id => {
@@ -13,7 +13,7 @@ const get = id => {
 }
 
 const update = data => {
-    return httpClient.put('/client-service/api/v1/clients/', data);
+    return httpClient.put('/client-service/api/v1/clients', data);
 }
 
 const remove = id => {

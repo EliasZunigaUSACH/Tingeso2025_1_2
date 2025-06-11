@@ -17,7 +17,7 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Reservation>> getAll() {
         List<Reservation> reservations = reservationService.getAll();
         if(reservations.isEmpty())
@@ -33,7 +33,7 @@ public class ReservationController {
         return ResponseEntity.ok(reservation);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Reservation> save(@RequestBody Reservation reservation) throws ParseException {
         Reservation reservationNew = reservationService.save(reservation);
         return ResponseEntity.ok(reservationNew);
