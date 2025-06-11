@@ -84,87 +84,85 @@ const AddEditClient = () => {
     >
       <h3> {titleClientForm} </h3>
       <hr />
-      <form>
-        <FormControl fullWidth>
-          <TextField
-            id="Name" 
-            label="Nombre"
-            value={name}
-            variant="standard"
-            onChange={(e) => setName(e.target.value)}
-          />
-        </FormControl>
+      <FormControl fullWidth>
+        <TextField
+          id="Name" 
+          label="Nombre"
+          value={name}
+          variant="standard"
+          onChange={(e) => setName(e.target.value)}
+        />
+      </FormControl>
 
-        <FormControl fullWidth>
-          <TextField
-            id="email" 
-            label="Correo electrónico"
-            value={email}
-            variant="standard"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </FormControl>
+      <FormControl fullWidth>
+        <TextField
+          id="email" 
+          label="Correo electrónico"
+          value={email}
+          variant="standard"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </FormControl>
 
-        <FormControl fullWidth>
-          <label htmlFor="birthday">Cumpleaños</label>
-          <DatePicker
-            id="birthday"
-            selected={birthday ? new Date(birthday) : null}
-            onChange={(date) => {
-              if (date) {
-                const formattedDate = `${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-                setBirthday(formattedDate);
-              }
-            }}
-            dateFormat="MM-dd"
-            showMonthDropdown
-            showDayDropdown
-            showYearDropdown={false}
-            dropdownMode="select"
-            placeholderText="Selecciona una fecha"
-            minDate={new Date(new Date().getFullYear(), 0, 1)}
-            maxDate={new Date(new Date().getFullYear(), 11, 31)}
-          />
-        </FormControl>
+      <FormControl fullWidth>
+        <label htmlFor="birthday">Cumpleaños</label>
+        <DatePicker
+          id="birthday"
+          selected={birthday ? new Date(birthday) : null}
+          onChange={(date) => {
+            if (date) {
+              const formattedDate = `${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+              setBirthday(formattedDate);
+            }
+          }}
+          dateFormat="MM-dd"
+          showMonthDropdown
+          showDayDropdown
+          showYearDropdown={false}
+          dropdownMode="select"
+          placeholderText="Selecciona una fecha"
+          minDate={new Date(new Date().getFullYear(), 0, 1)}
+          maxDate={new Date(new Date().getFullYear(), 11, 31)}
+        />
+      </FormControl>
 
-        <FormControl fullWidth>
-          <label htmlFor="fidelityLevel">Nivel de Fidelidad</label>
-          <TextField
-            id="fidelityLevel"
-            select
-            value={fidelityLevel}
-            onChange={(e) => setFidelityLevel(Number(e.target.value))}
-            variant="standard"
-          >
-            <MenuItem value={0}>No frecuente</MenuItem>
-            <MenuItem value={1}>Regular</MenuItem>
-            <MenuItem value={2}>Frecuente</MenuItem>
-            <MenuItem value={3}>Muy frecuente</MenuItem>
-          </TextField>
-        </FormControl>
+      <FormControl fullWidth>
+        <label htmlFor="fidelityLevel">Nivel de Fidelidad</label>
+        <TextField
+          id="fidelityLevel"
+          select
+          value={fidelityLevel}
+          onChange={(e) => setFidelityLevel(Number(e.target.value))}
+          variant="standard"
+        >
+          <MenuItem value={0}>No frecuente</MenuItem>
+          <MenuItem value={1}>Regular</MenuItem>
+          <MenuItem value={2}>Frecuente</MenuItem>
+          <MenuItem value={3}>Muy frecuente</MenuItem>
+        </TextField>
+      </FormControl>
 
-        <FormControl>
-          <br />
-          <Button
-            variant="contained"
-            color="info"
-            onClick={(e) => saveClient(e)}
-            style={{ marginLeft: "0.5rem" }}
-            startIcon={<SaveIcon />}
-          >
-            Guardar
-          </Button>
-        </FormControl>
-          <br />
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => navigate("/client/list")}
-          >
-            Back to List
-          </Button>
-        </form>
-      <hr />
+      <FormControl>
+        <br />
+        <Button
+          variant="contained"
+          color="info"
+          onClick={(e) => saveClient(e)}
+          style={{ marginLeft: "0.5rem" }}
+          startIcon={<SaveIcon />}
+        >
+          Guardar
+        </Button>
+      </FormControl>
+      <br />
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={() => navigate("/client/list")}
+      >
+        Back to List
+      </Button>
+    <hr />
     </Box>
   );
 };

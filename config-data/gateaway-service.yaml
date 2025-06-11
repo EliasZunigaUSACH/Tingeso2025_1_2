@@ -29,19 +29,29 @@ spring:
           uri: lb://client-service
           predicates:
             - Path=/client/**
+          filters:
+            - StripPrefix=1
         - id : reservation-service
           uri: lb://reservation-service
           predicates:
             - Path=/reservation/**
+          filters:
+            - StripPrefix=1
         - id: rack-service
           uri: lb://rack-service
           predicates:
             - Path=/rack/**
+          filters:
+            - StripPrefix=1
         - id: receipt-service
           uri: lb://receipt-service
           predicates:
             - Path=/receipt/**
+          filters:
+            - StripPrefix=1
         - id: report-service
           uri: lb://report-service
           predicates:
             - Path=/report/**
+          filters:
+            - StripPrefix=1
