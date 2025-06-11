@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface ReceiptRepository extends JpaRepository<Receipt, Integer> {
-
 }

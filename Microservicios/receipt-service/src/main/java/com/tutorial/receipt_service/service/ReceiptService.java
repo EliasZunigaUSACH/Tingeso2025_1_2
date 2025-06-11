@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 @Service
 public class ReceiptService {
@@ -21,11 +22,15 @@ public class ReceiptService {
     @Autowired
     RestTemplate restTemplate;
 
+    public List<Receipt> getAll() {
+        return receiptRepository.findAll();
+    }
+
     public Receipt getById(int id) {
         return receiptRepository.findById(id).orElse(null);
     }
 
-    private byte[] createPDF(Receipt receipt, Reservation reservation, Client client) {
+    private byte[] createPDF(Reservation reservation, Client client) {
         try {
             // Crear un documento
             Document document = new Document();
@@ -111,7 +116,7 @@ public class ReceiptService {
     public Receipt save(Receipt receipt) {
         Client client = restTemplate.getForObject("http://client-service/Client/" + receipt.getClientId(), Client.class);
         Reservation reservation = restTemplate.getForObject("http://reservation-service/Reservation/" + receipt.getReservationId(), Reservation.class);
-        receipt.setPdf(createPDF(receipt, reservation, client));
+        receipt.setPdf(createPDF(reservation, client));
         receipt.setEmailSended(true);
         return receiptRepository.save(receipt);
     }

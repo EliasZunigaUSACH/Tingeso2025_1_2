@@ -15,6 +15,14 @@ public class ReceiptController {
     @Autowired
     ReceiptService receiptService;
 
+    @GetMapping()
+    public ResponseEntity<List<Receipt>> getAll() {
+        List<Receipt> receipts = receiptService.getAll();
+        if (receipts.isEmpty())
+            return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(receipts);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Receipt> getById(@PathVariable("id") int id) {
         Receipt receipt = receiptService.getById(id);
