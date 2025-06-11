@@ -1,4 +1,7 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import reportService from "../services/report.service";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,6 +11,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import AddIcon from "@mui/icons-material/Add";
 
 function formatYearMonth(dateStr) {
   const date = new Date(dateStr);
@@ -18,7 +22,7 @@ const ReportList = () => {
     const [reports, setReports] = useState([]);
 
     const init = () => {
-        reportsService
+        reportService
             .getAll()
             .then((response) => {
                 console.log("Mostrando listado de todos los reportes.", response.data);
@@ -37,52 +41,66 @@ const ReportList = () => {
     }, []);
 
     const handleViewReport = (id) => {
-    // Aquí puedes agregar la lógica para ver el reporte
         alert(`Ver reporte con ID: ${id}`);
     };
 
     return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="left" sx={{ fontWeight: "bold" }}>
-              ID
-            </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
-              Fecha Inicio (Año-Mes)
-            </TableCell>
-            <TableCell align="right" sx={{ fontWeight: "bold" }}>
-              Fecha Fin (Año-Mes)
-            </TableCell>
-            <TableCell align="center" sx={{ fontWeight: "bold" }}>
-              Acciones
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {reports.map((report) => (
-            <TableRow key={report.id}>
-              <TableCell align="left">{report.id}</TableCell>
-              <TableCell align="right">{formatYearMonth(report.startDate)}</TableCell>
-              <TableCell align="right">{formatYearMonth(report.endDate)}</TableCell>
-              <TableCell align="center">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="small"
-                  onClick={() => handleViewReport(report.id)}
-                  startIcon={<VisibilityIcon />}
-                >
-                  Ver Reporte
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
+      
+        <TableContainer component={Paper}>
+          <br/>
+        <Link
+          to ="/report/add"
+          style={{ textDecoration: "none" , marginBottom: "1rem" }}>
+          <Button
+            variant="contained"
+            color="success"
+            startIcon={<AddIcon />}
+            style={{ marginBottom: "1rem" }}
+          >
+            Crear Reporte
+          </Button>
+        </Link>
+        <br/>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="left" sx={{ fontWeight: "bold" }}>
+                  ID
+                </TableCell>
+                <TableCell align="right" sx={{ fontWeight: "bold" }}>
+                  Fecha Inicio (Año-Mes)
+                </TableCell>
+                <TableCell align="right" sx={{ fontWeight: "bold" }}>
+                  Fecha Fin (Año-Mes)
+                </TableCell>
+                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                  Acciones
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {reports.map((report) => (
+                <TableRow key={report.id}>
+                  <TableCell align="left">{report.id}</TableCell>
+                  <TableCell align="right">{formatYearMonth(report.startDate)}</TableCell>
+                  <TableCell align="right">{formatYearMonth(report.endDate)}</TableCell>
+                  <TableCell align="center">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      size="small"
+                      onClick={() => handleViewReport(report.id)}
+                      startIcon={<VisibilityIcon />}
+                    >
+                      Ver Reporte
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+    );
 };
 
 export default ReportList;

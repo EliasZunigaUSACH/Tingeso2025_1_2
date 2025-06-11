@@ -4,11 +4,11 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://eureka-service-service:8761
-      ##uri: http://localhost:8081
+      ##uri: http://eureka-service-service:8761
+      uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://rack-db-service:5435/rackservicedb
-    ##url: jdbc:postgresql://localhost:5432/rackservicedb
+    ##url: jdbc:postgresql://rack-db-service:5435/rackservicedb
+    url: jdbc:postgresql://localhost:5432/rackservicedb
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver

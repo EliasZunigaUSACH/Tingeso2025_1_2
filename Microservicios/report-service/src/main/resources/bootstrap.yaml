@@ -4,11 +4,11 @@ spring:
   cloud:
     config:
       enabled: true
-      uri: http://eureka-service-service:8761
-      ##uri: http://localhost:8081
+      ##uri: http://eureka-service-service:8761
+      uri: http://localhost:8081
   datasource:
-    url: jdbc:postgresql://report-db-service:5437/reportservicedb
-    ##url: jdbc:postgresql://localhost:5432/reportservicedb
+    ##url: jdbc:postgresql://report-db-service:5437/reportservicedb
+    url: jdbc:postgresql://localhost:5432/reportservicedb
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver

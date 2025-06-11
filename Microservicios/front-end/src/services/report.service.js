@@ -1,4 +1,4 @@
-import httpClient from '..http-common';
+import httpClient from '../http-common';
 
 const getById = (id) => {
   return httpClient.get(`/report-service/api/v1/report/${id}`);

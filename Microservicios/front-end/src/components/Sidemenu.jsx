@@ -58,7 +58,7 @@ export default function Sidemenu({ open, toggleDrawer }) {
           <ListItemText primary="Boletas" />
         </ListItemButton>
 
-        <ListItemButton onClick={() => navigate("/reports/list")}>
+        <ListItemButton onClick={() => navigate("/report/list")}>
           <ListItemIcon sx={{ color: "white" }}>
             <AnalyticsIcon />
           </ListItemIcon>
