@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/racks")
-@CrossOrigin("*")
+
 public class RackController {
 
     @Autowired
