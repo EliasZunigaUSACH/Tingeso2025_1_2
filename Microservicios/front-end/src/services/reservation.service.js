@@ -5,7 +5,7 @@ const getAll = () => {
 }
 
 const create = data => {
-    return httpClient.post("/reservation-service/api/v1/reservations/", data);
+    return httpClient.post("/reservation-service/api/v1/reservations", data);
 }
 
 const get = id => {
@@ -13,7 +13,7 @@ const get = id => {
 }
 
 const update = data => {
-    return httpClient.put('/reservation-service/api/v1/reservations/', data);
+    return httpClient.put('/reservation-service/api/v1/reservations', data);
 }
 
 const remove = id => {
