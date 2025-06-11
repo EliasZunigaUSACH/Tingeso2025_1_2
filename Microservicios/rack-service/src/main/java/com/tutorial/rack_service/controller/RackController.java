@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/rack")
+@RequestMapping("/api/v1/racks")
 @CrossOrigin("*")
 public class RackController {
 
     @Autowired
     RackService rackService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Rack>> getAll() {
         List<Rack> racks = rackService.getAll();
         if(racks.isEmpty())
@@ -40,13 +40,13 @@ public class RackController {
         return ResponseEntity.ok(racks);
     }
 
-    @PostMapping()
+    @PostMapping("/")
     public ResponseEntity<Rack> save(@RequestBody Rack rack) {
         Rack rackNew = rackService.save(rack);
         return ResponseEntity.ok(rackNew);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<Rack> update(@RequestBody Rack rack, @RequestParam("id") int id) {
         Rack rackNew = rackService.update(rack, id);
         return ResponseEntity.ok(rackNew);

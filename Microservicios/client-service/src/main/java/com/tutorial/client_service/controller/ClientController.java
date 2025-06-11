@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/client")
+@RequestMapping("/api/v1/clients")
 @CrossOrigin("*")
 public class ClientController {
 
     @Autowired
     ClientService clientService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Client>> getAll() {
         List<Client> clients = clientService.getAll();
         if(clients.isEmpty())
@@ -32,13 +32,13 @@ public class ClientController {
         return ResponseEntity.ok(client);
     }
 
-    @PostMapping()
+    @PostMapping("/")
     public ResponseEntity<Client> save(@RequestBody Client client) {
         Client clientNew = clientService.save(client);
         return ResponseEntity.ok(clientNew);
     }
 
-    @PutMapping()
+    @PutMapping("/")
     public ResponseEntity<Client> update(@RequestBody Client client) {
         Client clientNew = clientService.update(client);
         return ResponseEntity.ok(clientNew);

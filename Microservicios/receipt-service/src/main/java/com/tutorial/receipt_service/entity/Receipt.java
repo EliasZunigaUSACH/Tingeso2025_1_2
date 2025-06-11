@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
+@Table(name = "receipts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -1,11 +1,15 @@
 import httpClient from "../http-common";
 
 const getById = (id) => {
-  return httpClient.get(`/receipt-service/api/v1/receipt/${id}`);
+  return httpClient.get(`/receipt-service/api/v1/receipts/${id}`);
 }
 
 const create = (data) => {
-  return httpClient.post("/receipt-service/api/v1/receipt", data);
+  return httpClient.post("/receipt-service/api/v1/receipts", data);
 }
 
-export default { getById, create };
+const remove = (id) => {
+  return httpClient.remove(`/receipt-service/api/v1/receipts/${id}`);
+}
+
+export default { getById, create , remove };

@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/report")
+@RequestMapping("/api/v1/reports")
 @CrossOrigin("*")
 public class ReportController {
 
     @Autowired
     ReportService reportService;
 
-    @GetMapping
+    @GetMapping("/")
     public ResponseEntity<List<Report>> getAll() {
         List<Report> reports = reportService.getAll();
         if(reports.isEmpty())
@@ -32,13 +32,13 @@ public class ReportController {
         return ResponseEntity.ok(report);
     }
 
-    @PostMapping()
+    @PostMapping("/")
     public ResponseEntity<Report> save(@RequestBody Report report) {
         Report reportNew = reportService.save(report);
         return ResponseEntity.ok(reportNew);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Report> delete(@RequestBody Report report) {
         reportService.save(report);
         return ResponseEntity.ok().build();
