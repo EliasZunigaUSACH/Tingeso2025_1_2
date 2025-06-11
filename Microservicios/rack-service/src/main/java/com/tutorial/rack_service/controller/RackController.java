@@ -1,7 +1,6 @@
 package com.tutorial.rack_service.controller;
 
 import com.tutorial.rack_service.entity.Rack;
-import com.tutorial.rack_service.model.Reservation;
 import com.tutorial.rack_service.service.RackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

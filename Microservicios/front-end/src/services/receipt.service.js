@@ -1,16 +1,11 @@
 import httpClient from "../http-common";
 
-const getAll = () => {
-    return httpClient.get('/api/v1/receipts/');
+const getById = (id) => {
+  return httpClient.get(`/receipt-service/api/v1/receipt/${id}`);
 }
 
-const calculate = (reservation) => {
-    return httpClient.get("/api/v1/receipts/calculate", { params: { reservation } });
+const create = (data) => {
+  return httpClient.post("/receipt-service/api/v1/receipt", data);
 }
 
-// Add the missing method
-const getByReservationId = (reservationId) => {
-    return httpClient.get(`/api/v1/receipts/${reservationId}`);
-}
-
-export default { getAll, calculate, getByReservationId };
+export default { getById, create };
