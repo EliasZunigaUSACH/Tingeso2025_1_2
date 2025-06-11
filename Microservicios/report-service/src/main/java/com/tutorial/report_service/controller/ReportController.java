@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/report")
+@RequestMapping("/api/v1/report")
+@CrossOrigin("*")
 public class ReportController {
 
     @Autowired

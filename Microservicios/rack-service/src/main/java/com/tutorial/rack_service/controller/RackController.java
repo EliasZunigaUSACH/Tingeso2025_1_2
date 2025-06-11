@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rack")
+@RequestMapping("/api/v1/rack")
+@CrossOrigin("*")
 public class RackController {
 
     @Autowired

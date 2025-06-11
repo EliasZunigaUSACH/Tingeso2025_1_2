@@ -10,7 +10,8 @@ import java.text.ParseException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/reservation")
+@RequestMapping("/api/v1/reservation")
+@CrossOrigin("*")
 public class ReservationController {
 
     @Autowired
