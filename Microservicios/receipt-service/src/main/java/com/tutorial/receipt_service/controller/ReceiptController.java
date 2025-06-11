@@ -29,4 +29,9 @@ public class ReceiptController {
         return ResponseEntity.ok(receiptNew);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable("id") int id) {
+        boolean result = receiptService.delete(id) != null;
+        return ResponseEntity.ok(result);
+    }
 }

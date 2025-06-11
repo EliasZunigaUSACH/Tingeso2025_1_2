@@ -116,4 +116,12 @@ public class ReceiptService {
         return receiptRepository.save(receipt);
     }
 
+    public Receipt delete(int id) {
+        Receipt receipt = receiptRepository.findById(id).orElse(null);
+        if(receipt != null) {
+            receiptRepository.deleteById(id);
+            return receipt;
+        }
+        return null;
+    }
 }
