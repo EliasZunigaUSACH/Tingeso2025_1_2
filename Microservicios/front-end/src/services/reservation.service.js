@@ -12,11 +12,7 @@ const get = id => {
     return httpClient.get(`/reservation-service/api/v1/reservations/${id}`);
 }
 
-const update = data => {
-    return httpClient.put('/reservation-service/api/v1/reservations', data);
-}
-
 const remove = id => {
     return httpClient.delete(`/reservation-service/api/v1/reservations/${id}`);
 }
-export default { getAll, create, get, update, remove };
+export default { getAll, create, get, remove };
